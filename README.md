@@ -23,8 +23,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.Github_Codecommit_AWS_KEY }}
-          aws-secret-access-key: ${{ secrets.GitHub_Codecommit_AWS_SECRET_KEY }}
+          aws-access-key-id: ${{ secrets.GH_CC_AWS_KEY  }}
+          aws-secret-access-key: ${{ secrets.GH_CC_AWS_SECRET_KEY }}
           aws-region: eu-west-1
 
       - name: Sync up to CodeCommit
