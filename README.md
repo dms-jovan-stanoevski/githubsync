@@ -6,14 +6,14 @@ No need to ssh-private-key. Need to AWS IAM Credentials only.
 ## Example usage
 
 ```yaml
-name: sync up to codecommit
+name: GitHub to Codecommit Sync
 
 on:
   push:
     tags-ignore:
       - '*'
     branches:
-      - '*'
+      - 'master'
 
 jobs:
   sync:
@@ -27,15 +27,15 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-          aws-region: ap-south-1
+          aws-access-key-id: ${{ secrets.Github_Codecommit_AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.GitHub_Codecommit_AWS_SECRET_KEY }}
+          aws-region: eu-west-1
 
       - name: Sync up to CodeCommit
         uses: nsannsri/awssync@v1
         with:
-          repository_name: test_repo
-          aws_region: ap-south-1
+          repository_name: name_aws_codecommit_repo
+          aws_region: eu-west-1
 ```
 
 ## Inputs
