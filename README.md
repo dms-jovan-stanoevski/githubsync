@@ -1,9 +1,5 @@
-# Sync up to AWS CodeCommit Action
 
-Synchronize from GitHub repository to AWS CodeCommit via GitHub Actions.  
-Need to AWS IAM Credentials only.
-
-## Example usage
+## Usage
 
 ```yaml
 name: GitHub to Codecommit Sync
@@ -37,11 +33,3 @@ jobs:
           repository_name: name_aws_codecommit_repo
           aws_region: eu-west-1
 ```
-
-## Inputs
-
-- `repository_name` **Required** CodeCommit repository name.
-- `aws_region` **Required** Region of the CodeCommit repository.
-
-## License
-
