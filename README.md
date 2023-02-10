@@ -28,7 +28,7 @@ jobs:
           aws-region: eu-west-1
 
       - name: Sync up to CodeCommit
-        uses: doctena-org/githubsync@v1
+        uses: dms-jovan-stanoevski/githubsync@v1
         with:
           repository_name: name_aws_codecommit_repo
           aws_region: eu-west-1
