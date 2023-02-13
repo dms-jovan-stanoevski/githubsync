@@ -24,7 +24,7 @@ jobs:
           aws-region: eu-west-1
 
       - name: Sync up to CodeCommit
-        uses: ./.github/workflows/github-backup.yaml/
+        uses: ./.github/workflows/github-backup@v1
         with:
           repository_name: maksystem-internal-github-backup
           aws_region: eu-west-1
