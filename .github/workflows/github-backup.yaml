@@ -3,11 +3,21 @@ name: GitHub to Codecommit Sync
 on:
   push:
     tags-ignore:
-      - '*'
+      - "*"
     branches:
-      - 'CLOUD-250'
+      - "**"
+      - "!main"
+      - "CLOUD-250"
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, closed]
+
+  workflow_dispatch:
 
 jobs:
+  build:
+    if: (!(github.event.action == 'closed' && github.event.pull_request.merged != true))
   sync:
     runs-on: ubuntu-latest
     steps:
