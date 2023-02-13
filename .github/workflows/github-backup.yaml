@@ -24,7 +24,7 @@ jobs:
           aws-region: eu-west-1
 
       - name: Sync up to CodeCommit
-        uses: ms-jovan-stanoevski/githubsync
+        uses: dms-jovan-stanoevski/githubsync@main
         with:
           repository_name: maksystem-internal-github-backup
           aws_region: eu-west-1
