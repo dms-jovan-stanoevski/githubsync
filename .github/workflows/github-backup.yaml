@@ -1,5 +1,5 @@
 name: GitHub to Codecommit Sync
-
+if: (!(github.event.action == 'closed' && github.event.pull_request.merged != true))
 on:
   push:
     tags-ignore:
@@ -16,8 +16,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    if: (!(github.event.action == 'closed' && github.event.pull_request.merged != true))
   sync:
     runs-on: ubuntu-latest
     steps:
