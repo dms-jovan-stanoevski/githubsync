@@ -1,4 +1,4 @@
- This workflow performs a backup of your repository to AWS S3 object storage
+# This workflow performs a backup of your repository to AWS S3 object storage
 
 name: GitHub to AWS S3 backup
 
