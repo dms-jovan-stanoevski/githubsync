@@ -6,7 +6,8 @@ name: GitHub to AWS S3 backup
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ "CLOUD-250" ]
+    branches:
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,15 +21,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: S3 Backup
-        uses: peter-evans/s3-backup@v1.0.2
+        uses: dms-jovan-stanoevski/github-s3-backup
         env:
           ACCESS_KEY_ID: ${{ secrets.GH_CC_AWS_KEY }}
           SECRET_ACCESS_KEY: ${{ secrets.GH_CC_AWS_SECRET_KEY }}
-          MIRROR_TARGET: maksystem-internal-github-backup/dms-jovan-stanoevski/githubsync/
+          MIRROR_TARGET: maksystem-internal-github-backup/dms-jovan-stanoevski/githubsync
           STORAGE_SERVICE_URL: https://maksystem-internal-github-backup.s3.eu-west-1.amazonaws.com
         with:
           args: --overwrite --remove
